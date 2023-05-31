@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ResumeServices.Models;
 using ResumeUploadAndDisplayBackend.Services;
 
 namespace ResumeParserBackendAPI.Controllers
@@ -20,6 +21,18 @@ namespace ResumeParserBackendAPI.Controllers
         public void Post (IFormFile resume)
         {
             _service.UploadResume(resume);
+        }
+
+        [HttpGet]
+        public List<Resume> ListResumes ()
+        {
+            return _service.GetResumes();
+        }
+        
+        [HttpGet]
+        public Resume ResumeDetails (string id)
+        {
+            return _service.GetResumeDetails(id);
         }
     }
 }

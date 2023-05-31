@@ -1,3 +1,4 @@
+using DatabaseConnectionSettings;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using ResumeServices;
@@ -6,11 +7,11 @@ using ResumeUploadAndDisplayBackend.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.Configure<IDatabaseSettings>(
-    builder.Configuration.GetSection(nameof(IDatabaseSettings)));
+builder.Services.Configure<DatabaseSettings>(
+    builder.Configuration.GetSection(nameof(DatabaseSettings)));
 
 builder.Services.AddSingleton<IDatabaseSettings>(p =>
-    p.GetRequiredService<IOptions<IDatabaseSettings>>().Value);
+    p.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
 builder.Services.AddSingleton<IMongoClient>(p =>
     new MongoClient(builder.Configuration.GetValue<string>("DatabaseSettings:ConnectionString")));
