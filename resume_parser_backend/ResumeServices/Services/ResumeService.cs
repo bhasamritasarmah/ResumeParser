@@ -19,7 +19,7 @@ namespace ResumeUploadAndDisplayBackend.Services
             _collection = database.GetCollection<Resume>(settings.CollectionName);
         }
 
-        public async void UploadResume (IFormFile resume)
+        public async Task UploadResume (IFormFile resume)
         {
             if (resume.Length > 0)
             {
@@ -27,7 +27,7 @@ namespace ResumeUploadAndDisplayBackend.Services
                 {
                     await resume.CopyToAsync(ms);
                     ms.Seek(0, SeekOrigin.Begin);
-                    var id = _bucket.UploadFromStreamAsync(resume.FileName, ms);
+                    var id = await _bucket.UploadFromStreamAsync(resume.FileName, ms);
                 }
             }
         }

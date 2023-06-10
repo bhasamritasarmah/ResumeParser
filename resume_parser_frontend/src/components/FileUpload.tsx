@@ -1,14 +1,12 @@
 //Contains the file upload form, progress bar, display of list files.
 
-import { useState, useEffect } from "react";
-import UploadService from "../services/FileUploadService";
-import IFile from "../types/File";
+import { useState } from "react";
+import Upload from "../services/FileUploadService";
 
-const FileUpload: React.FC = () => {
+function FileUpload() {
     const [currentFile, setCurrentFile] = useState<File>();
     const [progress, setProgress] = useState<number>(0);
     const [message, setMessage] = useState<string>("");
-    const [fileInfos, setFileInfos] = useState<Array<IFile>>([]);
 
     const selectFile = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { files } = event.target;
@@ -21,15 +19,8 @@ const FileUpload: React.FC = () => {
         setProgress(0);
         if (!currentFile)   return;
 
-        UploadService.upload (currentFile, (event: any) => {
+        Upload (currentFile, (event: any) => {
             setProgress(Math.round((100 * event.loaded) / event.total));
-        })
-        .then((response) => {
-            setMessage(response.data.message);
-            return UploadService.getFiles();
-        })
-        .then((files) => {
-            setFileInfos(files.data);
         })
         .catch((err) => {
             setProgress(0);
@@ -44,12 +35,6 @@ const FileUpload: React.FC = () => {
             setCurrentFile(undefined);
         });
     };
-
-    useEffect( () => {
-        UploadService.getFiles().then((response) => {
-            setFileInfos(response.data);
-        });
-    }, []);
 
     return (
         <>
@@ -66,7 +51,7 @@ const FileUpload: React.FC = () => {
                         disabled={ !currentFile }
                         onClick={ upload }
                     >
-                        Upload
+                        Upload Resume
                     </button>
                 </div>
             </div>
@@ -91,22 +76,8 @@ const FileUpload: React.FC = () => {
                     { message }
                 </div>
             )}
-
-            <div className="card mt-3">
-                <div className="card-header">
-                    List of Files
-                </div>
-                <ul className="list-group list-group-flush">
-                    { fileInfos && 
-                        fileInfos.map(( file, index ) => (
-                            <li className="list-group-item" key = { index }>
-                                <a href={ file.url }> { file.name } </a>
-                            </li>
-                        ))}
-                </ul>
-            </div>
         </>
     );
-};
+}
 
 export default FileUpload;

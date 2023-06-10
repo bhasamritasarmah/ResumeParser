@@ -5,7 +5,7 @@ using ResumeUploadAndDisplayBackend.Services;
 
 namespace ResumeParserBackendAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ResumeController : ControllerBase
     {
@@ -18,9 +18,9 @@ namespace ResumeParserBackendAPI.Controllers
 
         //POST api/<ResumeController>
         [HttpPost]
-        public void Post (IFormFile resume)
+        public async Task Post (IFormFile resume)
         {
-            _service.UploadResume(resume);
+            await _service.UploadResume(resume);
         }
 
         [HttpGet]

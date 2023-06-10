@@ -1,18 +1,27 @@
 //Container to embed all React components.
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import FileUpload from "./components/FileUpload";
+import Navbar from './components/NavBar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Blogs from './pages/Blogs';
+import SignUp from './pages/SignUp';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="container" style={{ width: "600px" }}>
-      <div className="my-3">
-        <h3>ResumeParser</h3>
-        <h4>Please upload your resume here.</h4>
-      </div>
-      < FileUpload />
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={ <Home /> } />
+        <Route path="/home" element={ <Home /> } />
+        <Route path="/about" element={ <About /> } />
+        <Route path="/blogs" element={ <Blogs /> } />
+        <Route path="/signup" element={ <SignUp /> } />
+        <Route path="/contact" element={ <Contact /> } />
+      </Routes>
+    </Router>
   );
 }
 

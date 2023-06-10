@@ -48,3 +48,9 @@ C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBacke
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\obj\Debug\net6.0\ref\ResumeParserBackendAPI.dll
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\DatabaseConnectionSettings.dll
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\DatabaseConnectionSettings.pdb
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\System.Web.Cors.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\System.Web.Http.Cors.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
