@@ -54,3 +54,12 @@ C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBacke
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\System.Web.Http.Cors.dll
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\DPDFRenderNative_x64.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\DPDFRenderNative_x86.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\libDPDFRenderNative_x64.so
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\DynamicPDF.Rasterizer.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\runtimes\linux-x64\native\libDPDFRenderNative_x64.so
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\runtimes\win10-x64\native\DPDFRenderNativeUWP_x64.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\runtimes\win10-x64\native\DPDFRenderNative_x64.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\runtimes\win10-x86\native\DPDFRenderNativeUWP_x86.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeParserBackendAPI\bin\Debug\net6.0\runtimes\win10-x86\native\DPDFRenderNative_x86.dll

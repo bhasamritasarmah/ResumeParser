@@ -13,3 +13,6 @@ C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\DatabaseConnectio
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\DatabaseConnectionSettings\obj\Debug\net6.0\refint\DatabaseConnectionSettings.dll
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\DatabaseConnectionSettings\obj\Debug\net6.0\DatabaseConnectionSettings.pdb
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\DatabaseConnectionSettings\obj\Debug\net6.0\ref\DatabaseConnectionSettings.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\DatabaseConnectionSettings\bin\Debug\net6.0\DPDFRenderNative_x64.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\DatabaseConnectionSettings\bin\Debug\net6.0\DPDFRenderNative_x86.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\DatabaseConnectionSettings\bin\Debug\net6.0\libDPDFRenderNative_x64.so

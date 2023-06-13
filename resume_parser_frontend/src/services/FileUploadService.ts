@@ -6,7 +6,7 @@ import axios from "axios";
 function Upload(file: File, onUploadProgress: any): Promise<any> {
     let formData = new FormData();
 
-    formData.append("file", file);
+    formData.append("resume", file);
     
     return axios.post(uploadURL, formData, {
         headers: {

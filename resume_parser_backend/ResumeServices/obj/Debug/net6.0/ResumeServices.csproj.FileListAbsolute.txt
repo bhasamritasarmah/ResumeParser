@@ -10,3 +10,6 @@ C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeServices\ob
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeServices\obj\Debug\net6.0\refint\ResumeServices.dll
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeServices\obj\Debug\net6.0\ResumeServices.pdb
 C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeServices\obj\Debug\net6.0\ref\ResumeServices.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeServices\bin\Debug\net6.0\DPDFRenderNative_x64.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeServices\bin\Debug\net6.0\DPDFRenderNative_x86.dll
+C:\Users\bhasa\source\repos\ResumeParser\resume_parser_backend\ResumeServices\bin\Debug\net6.0\libDPDFRenderNative_x64.so

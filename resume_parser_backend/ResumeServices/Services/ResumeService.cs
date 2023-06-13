@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ceTe.DynamicPDF.Rasterizer;
+using Microsoft.AspNetCore.Http;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using MongoDB.Driver.GridFS;
 using ResumeServices;
 using ResumeServices.Models;
-using System.ComponentModel;
+using System.IO;
+
 
 namespace ResumeUploadAndDisplayBackend.Services
 {
@@ -19,16 +22,28 @@ namespace ResumeUploadAndDisplayBackend.Services
             _collection = database.GetCollection<Resume>(settings.CollectionName);
         }
 
-        public async Task UploadResume (IFormFile resume)
+        public void UploadResume(IFormFile resume)
         {
             if (resume.Length > 0)
             {
+                byte[] pdfBytes;
+                string output = resume.FileName;
+                output = output.Substring(0, output.IndexOf('.'));
+                string outputFile = "D:\\" + output;
+
                 using (var ms = new MemoryStream())
                 {
-                    await resume.CopyToAsync(ms);
+                    resume.CopyToAsync(ms);
                     ms.Seek(0, SeekOrigin.Begin);
-                    var id = await _bucket.UploadFromStreamAsync(resume.FileName, ms);
+                    //var id = _bucket.UploadFromStream(resume.FileName, ms);
+                    pdfBytes = ms.ToArray();
                 }
+
+                InputPdf inputPdf = new InputPdf(pdfBytes);
+                PdfRasterizer rasterizer = new PdfRasterizer(inputPdf);
+                byte[] tiffBytes = rasterizer.DrawToMultiPageTiff(ImageFormat.TiffWithLzw, ImageSize.Dpi96);
+
+                File.WriteAllBytes(outputFile + ".tiff", tiffBytes);
             }
         }
 

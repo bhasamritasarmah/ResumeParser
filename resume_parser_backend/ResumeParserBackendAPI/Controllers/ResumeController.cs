@@ -18,9 +18,9 @@ namespace ResumeParserBackendAPI.Controllers
 
         //POST api/<ResumeController>
         [HttpPost]
-        public async Task Post (IFormFile resume)
+        public void Post (IFormFile resume)
         {
-            await _service.UploadResume(resume);
+            _service.UploadResume(resume);
         }
 
         [HttpGet]

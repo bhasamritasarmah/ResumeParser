@@ -28,13 +28,13 @@ var configuration = provider.GetRequiredService<IConfiguration>();
 
 builder.Services.AddCors(options =>
 {
-    var frontEndURL = configuration.GetValue<string>("FrontEndURL");
-
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.WithOrigins(frontEndURL).AllowAnyMethod().AllowAnyHeader();
-    });
+    options.AddPolicy("CorsPolicy",
+        builder => builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
 });
+
+
 
 var app = builder.Build();
 
@@ -47,7 +47,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors();
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 

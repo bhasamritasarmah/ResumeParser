@@ -200,6 +200,10 @@
             "MongoDB.Driver.GridFS": {
               "target": "Package",
               "version": "[2.19.1, )"
+            },
+            "ceTe.DynamicPDF.Rasterizer.NET": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             }
           },
           "imports": [
