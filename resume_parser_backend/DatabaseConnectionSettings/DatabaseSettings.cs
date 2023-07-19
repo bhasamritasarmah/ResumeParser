@@ -1,12 +1,12 @@
 ﻿using ResumeServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DatabaseConnectionSettings
 {
+    /// <summary>
+    /// The class 'DatabaseSettings' is using the interface 'IDatabaseSettings'
+    /// to get the names of the database connection string, database name, and
+    /// collection name from the appsettings.json file.
+    /// </summary>
     public class DatabaseSettings : IDatabaseSettings
     {
         public string ConnectionString { get; set; } = String.Empty;

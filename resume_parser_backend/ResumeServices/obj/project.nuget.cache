@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AF19WzEeBFYGrEXAlOEDsua00ytgUQQyUm3Ql6IbapNUJRrcu3gtXrJnAX8nEXUhLA07Y2wxqjMofk+1GVeJkw==",
+  "dgSpecHash": "nL1tyVTl10Pqm6ZMe06QLYs5Liy+Sq+SxOB9Gn/i30g8uOTJaEMg6a1DmHh6RaMbfHRmgOzoq0KtO7N0IeqSNA==",
   "success": true,
   "projectFilePath": "C:\\Users\\bhasa\\source\\repos\\ResumeParser\\resume_parser_backend\\ResumeServices\\ResumeServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bhasa\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\bhasa\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
-    "C:\\Users\\bhasa\\.nuget\\packages\\cete.dynamicpdf.rasterizer.net\\4.1.0\\cete.dynamicpdf.rasterizer.net.4.1.0.nupkg.sha512",
     "C:\\Users\\bhasa\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\bhasa\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\bhasa\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
@@ -25,7 +24,6 @@
     "C:\\Users\\bhasa\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "C:\\Users\\bhasa\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\bhasa\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\bhasa\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512",
     "C:\\Users\\bhasa\\.nuget\\packages\\zstdsharp.port\\0.6.2\\zstdsharp.port.0.6.2.nupkg.sha512"
   ],
   "logs": []

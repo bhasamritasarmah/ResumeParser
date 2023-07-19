@@ -7,10 +7,37 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ceTe.DynamicPDF.Rasterizer.NET" Version="4.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="MongoDB.Driver" Version="2.19.1" />
     <PackageReference Include="MongoDB.Driver.GridFS" Version="2.19.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\bhasa\.nuget\packages\cete.dynamicpdf.rasterizer.net\4.1.0\build\netstandard20\..\..\runtimes\win10-x64\native\DPDFRenderNative_x64.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\bhasa\.nuget\packages\cete.dynamicpdf.rasterizer.net\4.1.0\build\netstandard20\..\..\runtimes\win10-x86\native\DPDFRenderNative_x86.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\bhasa\.nuget\packages\cete.dynamicpdf.rasterizer.net\4.1.0\build\netstandard20\..\..\runtimes\linux-x64\native\libDPDFRenderNative_x64.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\bhasa\.nuget\packages\cete.dynamicpdf.rasterizer.net\4.1.0\build\netstandard20\..\..\runtimes\win10-x64\native\DPDFRenderNative_x64.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\bhasa\.nuget\packages\cete.dynamicpdf.rasterizer.net\4.1.0\build\netstandard20\..\..\runtimes\win10-x64\native\DPDFRenderNative_x64.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\bhasa\.nuget\packages\cete.dynamicpdf.rasterizer.net\4.1.0\build\netstandard20\..\..\runtimes\win10-x86\native\DPDFRenderNative_x86.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\bhasa\.nuget\packages\cete.dynamicpdf.rasterizer.net\4.1.0\build\netstandard20\..\..\runtimes\linux-x64\native\libDPDFRenderNative_x64.so" />
   </ItemGroup>
 
 </Project>

@@ -4,11 +4,14 @@ import './App.css';
 import Navbar from './components/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import About from './pages/About';
-import Blogs from './pages/Blogs';
-import SignUp from './pages/SignUp';
-import Contact from './pages/Contact';
+import ListOfResumes from './pages/ListOfResumes';
+import ResumeDetails from './pages/ResumeDetails';
 
+/* The function app displays the Navbar or navigation bar, which contains
+ * three pages - Home, ListOfResumes, ResumeDetails. Each of these pages
+ * are displayed in the Navbar and when clicked on, opens up the particular
+ * page. By default, when no particular page is selected, it points to the
+ * Home page. The Navbar is visible from all the pages. */
 function App() {
   return (
     <Router>
@@ -16,10 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={ <Home /> } />
         <Route path="/home" element={ <Home /> } />
-        <Route path="/about" element={ <About /> } />
-        <Route path="/blogs" element={ <Blogs /> } />
-        <Route path="/signup" element={ <SignUp /> } />
-        <Route path="/contact" element={ <Contact /> } />
+        <Route path="/listofresumes" element={ <ListOfResumes /> } />
+        <Route path="/resumedetails" element={ <ResumeDetails /> } />
       </Routes>
     </Router>
   );

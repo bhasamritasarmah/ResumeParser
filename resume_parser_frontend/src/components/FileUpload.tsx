@@ -3,6 +3,25 @@
 import { useState } from "react";
 import Upload from "../services/FileUploadService";
 
+/* The function FileUpload implements the part where the file can be uploaded.
+ *
+ * It uses 3 different useState hooks - one for the file uploaded, the second 
+ * for showing the upload progress of the file, and the third for showing the 
+ * message once the file is successfully/unsuccessfully uploaded.
+ * 
+ * The arrow function 'selectFile' takes in a list of files.
+ * 
+ * The arrow function 'upload' uploads the files one by one and shows the progress
+ * in a progress bar. If the file could not be uploaded, it displays an error
+ * message. The component Upload (makes the axios post connection) is defined in a
+ * separate file 'FileUploadService'. 
+ * 
+ * The arrow function 'selectFile' is implemented as a file selection button. 
+ * The arrow function 'upload' is implemented as a file upload button.
+ * The progress bar shows the progress percentage from 0 to 100%.
+ * A file upload successful/unsuccessful message is displayed as an alert, once the 
+ * file upload process is over.*/
+
 function FileUpload() {
     const [currentFile, setCurrentFile] = useState<File>();
     const [progress, setProgress] = useState<number>(0);

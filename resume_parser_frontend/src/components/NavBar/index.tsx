@@ -6,10 +6,8 @@ function Navbar() {
         <Nav>
             <NavMenu>
                 <NavLink to = "/Home"> Home </NavLink>
-                <NavLink to = "/About"> About </NavLink>
-                <NavLink to = "/Contact"> Contact Us </NavLink>
-                <NavLink to = "/Blogs"> Blogs </NavLink>
-                <NavLink to = "/SignUp"> Sign Up </NavLink>
+                <NavLink to = "/ListOfResumes"> List of Resumes </NavLink>
+                <NavLink to = "/ResumeDetails"> Resume Details </NavLink>
             </NavMenu>
         </Nav>
         </>

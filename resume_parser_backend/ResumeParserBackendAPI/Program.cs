@@ -7,15 +7,30 @@ using ResumeUploadAndDisplayBackend.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+/* The following line connects the file 'DatabaseSettings' to the 
+ * details of the section 'DatabaseSettings' in appsettings.json.
+ * This helps to get the connection string, database name, and 
+ * collection name. */
 builder.Services.Configure<DatabaseSettings>(
     builder.Configuration.GetSection(nameof(DatabaseSettings)));
 
+/* The following line connects the interface 'IDatabaseSettings' to the
+ * corresponding file 'DatabaseSettings' which contains the implementation. 
+ * AddSingleton creates only a single connection throughout the entire program
+ * and provides a single point of access to various codes in the program. This
+ * type of connection is useful for heavy connections like that of a database. */
 builder.Services.AddSingleton<IDatabaseSettings>(p =>
     p.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
+/* The following line provides the database connection string from the appsettings.json
+ * file to the IMongoClient. This helps the client to establish connections to the 
+ * given database and collections. This is also a Singleton connection. */
 builder.Services.AddSingleton<IMongoClient>(p =>
     new MongoClient(builder.Configuration.GetValue<string>("DatabaseSettings:ConnectionString")));
 
+/* The following line connects the interface 'IResumeService' to the file 'ResumeService'.
+ * AddScoped provides a new object or instance with each new HTTP request. */
 builder.Services.AddScoped<IResumeService, ResumeService>();
 
 builder.Services.AddControllers();
