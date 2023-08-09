@@ -11,8 +11,8 @@ namespace ResumeUploadAndDisplayBackend.Services
     /// </summary>
     public interface IResumeService
     {
-        void UploadResume(IFormFile resume);
-        List<Resume> GetResumes();
-        Resume GetResumeDetails(string id);
+        Task UploadAndParse(IFormFile resume);
+        List<Resume> GetAll();
+        Resume GetDetails(string id);
     }
 }

@@ -1,23 +1,12 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ResumeServices.Models
 {
     public class Education
     {
-        [BsonElement("institute_name")]
-        public string InstituteName { get; set; } = String.Empty;
-        [BsonElement("degree")]
-        public string Degree { get; set; } = String.Empty;
-        [BsonElement("specialisation")]
-        public string Specialisation { get; set; } = String.Empty;
-        [BsonElement("start_date")]
-        public DateOnly StartDate { get; set; }
-        [BsonElement("end_date")]
-        public DateOnly EndDate { get; set;}
+        public string institute_name { get; set; } = String.Empty;
+        public string degree { get; set; } = String.Empty;
+        public string major { get; set; } = String.Empty;
+        public string start_date { get; set; } = String.Empty;
+        public string end_date { get; set; } = String.Empty;
     }
 }

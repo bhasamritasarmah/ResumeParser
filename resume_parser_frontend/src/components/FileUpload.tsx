@@ -70,7 +70,7 @@ function FileUpload() {
                         disabled={ !currentFile }
                         onClick={ upload }
                     >
-                        Upload Resume
+                        Upload and Parse
                     </button>
                 </div>
             </div>

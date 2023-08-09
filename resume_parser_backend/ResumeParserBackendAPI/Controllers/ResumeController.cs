@@ -31,9 +31,9 @@ namespace ResumeParserBackendAPI.Controllers
         /// </summary>
         /// <param name="resume"></param>
         [HttpPost]
-        public void Post (IFormFile resume)
+        public async Task Post (IFormFile resume)
         {
-            _service.UploadResume(resume);
+            await _service.UploadAndParse(resume);
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace ResumeParserBackendAPI.Controllers
         [HttpGet]
         public List<Resume> ListResumes ()
         {
-            return _service.GetResumes();
+            return _service.GetAll();
         }
         
         /// <summary>
@@ -58,7 +58,7 @@ namespace ResumeParserBackendAPI.Controllers
         [HttpGet]
         public Resume ResumeDetails (string id)
         {
-            return _service.GetResumeDetails(id);
+            return _service.GetDetails(id);
         }
     }
 }
