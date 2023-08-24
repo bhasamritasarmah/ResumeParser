@@ -1,0 +1,1 @@
+CLIENT_TIMEOUT = 900        # 15 minutes
