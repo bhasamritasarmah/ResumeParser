@@ -31,9 +31,9 @@ namespace ResumeParserBackendAPI.Controllers
         /// </summary>
         /// <param name="resume"></param>
         [HttpPost]
-        public async Task Post (IFormFile resume)
+        public async Task<string> Post (IFormFile resume)
         {
-            await _service.UploadAndParse(resume);
+            return await _service.UploadAndParse(resume);
         }
 
         /// <summary>

@@ -1,7 +1,9 @@
 from pypdf import PdfReader
 from text_generation import InferenceAPIClient
 import json
+import datetime
 from flask import Flask, request
+import docx
 
 
 # Function to convert the uploaded resume to string format.
@@ -15,6 +17,21 @@ def pdf_to_text(resume_file):
         resume_text += " " + page.extract_text()
 
     return resume_text
+
+
+def docx_to_text(resume_file):
+    doc = docx.Document(resume_file)
+    content = []
+
+    for paragraph in doc.paragraphs:
+        content.append(paragraph.text)
+
+    return "\n".join(content)
+
+
+def read_text(resume_file):
+    content = resume_file.read().decode("utf-8")
+    return content
 
 
 # Function to create the prompt to feed the model, based on the resume text uploaded.
@@ -90,6 +107,7 @@ def extract_json(output_text, resume_id):
             "other_skills": other_skills,
         },
         "raw_resume": output_text,
+        "date_time": str(datetime.datetime.now().replace(microsecond=0)),
     }
     return str(parsed_json)
 
@@ -134,6 +152,7 @@ def build_skill(key_name, parsed_json):
     return key_field
 
 
+
 # Running the LLM Model in the Flask App
 app = Flask(__name__)
 
@@ -141,7 +160,15 @@ app = Flask(__name__)
 def uploadedFile():
     resume_file = request.files["resume"]
     resume_id = request.form.get("resume_id")
-    resume_text = pdf_to_text(resume_file)
+
+    file_extension = resume_file.filename.rsplit('.', 1)[1].lower()
+    if (file_extension == "pdf"):
+        resume_text = pdf_to_text(resume_file)
+    if (file_extension == "docx"):
+        resume_text = docx_to_text(resume_file)
+    if (file_extension == "txt"):
+        resume_text = read_text(resume_file)
+
     prompt = create_prompt(resume_text)
     output_text = client.generate(prompt, max_new_tokens=550, temperature=0.001).generated_text
     parsed_json = extract_json(output_text, resume_id)

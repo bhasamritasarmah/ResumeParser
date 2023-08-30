@@ -18,5 +18,6 @@ namespace ResumeServices.Models
         public List<Project> project { get; set; } = new List<Project> { };
         public Skills skills { get; set; } = new Skills { };
         public string raw_resume { get; set; } = String.Empty;
+        public string date_time { get; set; } = String.Empty;
     }
 }

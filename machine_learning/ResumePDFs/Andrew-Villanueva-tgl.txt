@@ -1,0 +1,40 @@
+ {
+  "person_name": "Andrew Villanueva",
+  "phone_number": "123-456-7890",
+  "email": "hello@resumesbot.com",
+  "education": {
+    "institute_name": "Beechtown University",
+    "degree": "Bachelor of Science in Engineering",
+    "major": "Mechanical Engineering",
+    "start_date": "2015",
+    "end_date": "2019"
+  },
+  "experience": {
+    "company_name": "Mountaintop Home Services",
+    "role": "Handyman",
+    "start_date": "2017",
+    "end_date": "2019"
+  },
+  "project": {
+    "project_name": "Handyman",
+    "start_date": "2017",
+    "end_date": "2019"
+  },
+  "skills": {
+    "technical_skills": [
+      "Handyman",
+      "Handyman",
+      "Handyman"
+    ],
+    "soft_skills": [
+      "Handyman",
+      "Handyman",
+      "Handyman"
+    ],
+    "other_skills": [
+      "Handyman",
+      "Handyman",
+      "Handyman"
+    ]
+  }
+}

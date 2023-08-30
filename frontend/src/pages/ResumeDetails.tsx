@@ -39,12 +39,14 @@ interface Resume {
     skills: Skills;
 }
 
+const baseURL = process.env.REACT_APP_BASE_URL;
+
 function ResumeDetails() {  
     const { id } = useParams<{ id: string }>();
     const [resumeDetail, setResumeDetail] = useState<Resume | null>(null);
 
     useEffect(() => {
-        axios.get<Resume>(`https://localhost:7173/api/resume/resumedetails?id=${id}`)
+        axios.get<Resume>(`${baseURL}/resume/resumedetails?id=${id}`)
         .then(response => {
             setResumeDetail(response.data);
         })

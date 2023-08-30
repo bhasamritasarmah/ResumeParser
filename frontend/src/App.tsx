@@ -4,8 +4,9 @@ import './App.css';
 import Navbar from './components/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import ListOfResumes from './pages/ListOfResumes';
+import ListOfResumes from './pages/ResumeLists';
 import ResumeDetails from './pages/ResumeDetails';
+import RawResume from './pages/RawResume';
 
 /* The function app displays the Navbar or navigation bar, which contains
  * three pages - Home, ListOfResumes, ResumeDetails. Each of these pages
@@ -19,8 +20,9 @@ function App() {
       <Routes>
         <Route path="/" element={ <Home /> } />
         <Route path="/home" element={ <Home /> } />
-        <Route path="/listofresumes" element={ <ListOfResumes /> } />
+        <Route path="/resumelists" element={ <ListOfResumes /> } />
         <Route path="/resumedetails/:id" element={ <ResumeDetails /> } />
+        <Route path="/rawresume/:id" element={ <RawResume /> } />
       </Routes>
     </Router>
   );

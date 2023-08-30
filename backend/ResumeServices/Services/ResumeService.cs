@@ -41,45 +41,55 @@ namespace ResumeUploadAndDisplayBackend.Services
         /// in the database.
         /// </summary>
         /// <param name="resume"></param>
-        public async Task UploadAndParse(IFormFile resume)
+        /// <returns>A string message saying whether it was successful or or failure.</returns>
+        public async Task<string> UploadAndParse(IFormFile resume)
         {
-            if (resume != null && resume.Length > 0)
+            try
             {
-                string id;
-                using (var ms = new MemoryStream())
+                if (resume != null && resume.Length > 0)
                 {
-                    resume.CopyTo(ms);
-                    ms.Seek(0, SeekOrigin.Begin);  // Once the whole object is copied to the
-                                                   // memory stream, the pointer points to the 
-                                                   // end of the stream. In order to upload the 
-                                                   // stream to the database, the pointer must 
-                                                   // be brought back to the starting of the 
-                                                   // stream or otherwise the database storage 
-                                                   // will remain empty.
-                    id = (await _bucket.UploadFromStreamAsync(resume.FileName, ms)).ToString();
-                }
-
-                using (var stream = resume.OpenReadStream())
-                {
-                    //The resume is sent to the python API in the form of MultipartFormData
-                    var content = new MultipartFormDataContent();
-                    content.Add(new StreamContent(stream), "resume", resume.FileName);
-                    content.Add(new StringContent(id), "resume_id");
-
-                    var client = new HttpClient();
-                    //Client timeout is increased since the LLM model takes some time to run.
-                    //client.Timeout = TimeSpan.FromMinutes(15);
-                    var response = await client.PostAsync("http://127.0.0.1:5000/upload", content);
-
-                    if (response.IsSuccessStatusCode)
+                    string id;
+                    using (var ms = new MemoryStream())
                     {
-                        var parsed_json = await response.Content.ReadAsStringAsync();
-                        Resume parsed_resume = JsonConvert.DeserializeObject<Resume>(parsed_json);
-                        _collection.InsertOne(parsed_resume);
+                        resume.CopyTo(ms);
+                        ms.Seek(0, SeekOrigin.Begin);
+                        id = (await _bucket.UploadFromStreamAsync(resume.FileName, ms)).ToString();
+                    }
+
+                    using (var stream = resume.OpenReadStream())
+                    {
+                        var content = new MultipartFormDataContent();
+                        content.Add(new StreamContent(stream), "resume", resume.FileName);
+                        content.Add(new StringContent(id), "resume_id");
+
+                        var client = new HttpClient();
+                        var response = await client.PostAsync("http://127.0.0.1:5000/upload", content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var parsed_json = await response.Content.ReadAsStringAsync();
+                            Resume parsed_resume = JsonConvert.DeserializeObject<Resume>(parsed_json);
+                            _collection.InsertOne(parsed_resume);
+                        }
+                        else
+                        {
+                            return "Error parsing the resume. Please try again.";
+                        }
                     }
                 }
+                else
+                {
+                    return "No resume file provided.";
+                }
             }
+            catch (Exception ex)
+            {
+                return $"An error occurred: {ex.Message}";
+            }
+
+            return "Resume uploaded and parsed successfully.";
         }
+
 
         /// <summary>
         /// The method 'GetAll' gets a list of all the resumes which were uploaded

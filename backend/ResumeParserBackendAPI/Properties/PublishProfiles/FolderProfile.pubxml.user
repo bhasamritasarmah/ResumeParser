@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>\\192.168.6.153\bs_backend</_PublishTargetUrl>
+    <History>False|2023-08-30T10:38:49.4426092Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

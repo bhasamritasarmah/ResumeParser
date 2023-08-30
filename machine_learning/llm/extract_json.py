@@ -1,4 +1,6 @@
+from fileinput import filename
 import json
+import datetime
 
 # Function to extract the JSON string
 def balanced_parentheses(output_text):
@@ -46,7 +48,7 @@ def build_list(key_name, parsed_json):
             key_field = []
             key_field.append(parsed_json[key_name])
     except:
-        key_field = []
+        key_field = [{}]
 
     return key_field
 
@@ -69,16 +71,31 @@ def build_skill(key_name, parsed_json):
 # Function to extract and merge JSONs
 def extract_json(output_text, resume_id):
     json_string = balanced_parentheses(output_text)
-    json_element = json.loads(json_string)
-    person_name = build("person_name", json_element)
-    phone_number = build("phone_number", json_element)
-    email = build("email", json_element)
-    education = build_list("education", json_element)
-    experience = build_list("experience", json_element)
-    project = build_list("project", json_element)
-    technical_skills = build_skill("technical_skills", json_element)
-    soft_skills = build_skill("soft_skills", json_element)
-    other_skills = build_skill("other_skills", json_element)
+    try:
+        json_element = json.loads(json_string)
+    except:
+        json_element = ""
+
+    if(json_element != ""):
+        person_name = build("person_name", json_element)
+        phone_number = build("phone_number", json_element)
+        email = build("email", json_element)
+        education = build_list("education", json_element)
+        experience = build_list("experience", json_element)
+        project = build_list("project", json_element)
+        technical_skills = build_skill("technical_skills", json_element)
+        soft_skills = build_skill("soft_skills", json_element)
+        other_skills = build_skill("other_skills", json_element)
+    else:
+        person_name = ""
+        phone_number = ""
+        email = ""
+        education = [{}]
+        experience = [{}]
+        project = [{}]
+        technical_skills = []
+        soft_skills = []
+        other_skills = []
 
     parsed_json = {
         "resume_id": resume_id,
@@ -94,6 +111,7 @@ def extract_json(output_text, resume_id):
             "other_skills": other_skills,
         },
         "raw_resume": output_text,
+        "date_time": str(datetime.datetime.now().replace(microsecond=0)),
     }
     return str(parsed_json)
 
